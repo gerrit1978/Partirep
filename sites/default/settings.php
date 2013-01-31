@@ -215,8 +215,8 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'hedgecomm_partir',
-      'username' => 'hedgecomm_partir',
+      'database' => 'partirep.local',
+      'username' => 'root',
       'password' => 'Octago3n',
       'host' => 'localhost',
       'port' => '',
