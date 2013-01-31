@@ -210,7 +210,21 @@
  *   );
  * @endcode
  */
-$databases = array();
+$databases = array (
+  'default' => 
+  array (
+    'default' => 
+    array (
+      'database' => 'hedgecomm_partir',
+      'username' => 'hedgecomm_partir',
+      'password' => 'Octago3n',
+      'host' => 'localhost',
+      'port' => '',
+      'driver' => 'mysql',
+      'prefix' => '',
+    ),
+  ),
+);
 
 /**
  * Access control for update.php script.
@@ -242,7 +256,7 @@ $update_free_access = FALSE;
  *   $drupal_hash_salt = file_get_contents('/home/example/salt.txt');
  *
  */
-$drupal_hash_salt = '';
+$drupal_hash_salt = 'OetL-fsKzRV7CkZ3qLzoookrJzL2oDroph_OpFN_Cvw';
 
 /**
  * Base URL (optional).
