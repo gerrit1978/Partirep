@@ -220,7 +220,7 @@ $databases = array (
     array (
       'database' => 'partirep.local',
       'username' => 'root',
-      'password' => 'Octago3n',
+      'password' => 'root',
       'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',
