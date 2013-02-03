@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Implements hook_theme
+ */
+function hc_team_theme($existing, $type, $theme, $path) {
+  return array(
+
+		// main team page
+    'views_view_field__team__nothing' => array( 
+        'arguments' => array('view' => FALSE, 'field' => FALSE, 'row' => FALSE),
+        'original hook' => 'views_view_field',
+    ),
+  );
+}
+
+
+/**
+ * Implements hook_views_api
+ */
+function hc_catalog_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+
+/**
+ * Theme function for team page
+ */
+function theme_views_view_field__team__nothing(&$vars) {
+  
+  // Taxonomy term id = university ID
+  $tid = $vars['row']->tid;
+  
+  // Get user ids for this tid
+  $result = db_query("SELECT entity_id FROM {field_revision_field_user_univ} WHERE field_user_univ_tid=:tid;", 
+      array(':tid' => $tid)
+  );
+
+  $uids = array();
+  foreach ($result as $row) {
+    $uids[] = $row->entity_id;
+  }
+  
+  $output = views_embed_view('users', 'default', implode(',', $uids));
+  
+  return $output;
+}

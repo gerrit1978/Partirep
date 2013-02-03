@@ -1,0 +1,6 @@
+name        = Team
+description = Team page view functionality 
+core        = 7.x
+package     = HedgeComm 
+version     = 7.x-1.0
+dependencies[] = views 
