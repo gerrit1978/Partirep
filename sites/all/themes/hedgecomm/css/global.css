@@ -2,8 +2,43 @@
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 
 /** HTML elements **/
+body {
+  font-size: 1.077em;
+  font-family: Arial, sans-serif;
+  color: #444;
+}
+
+p {
+  margin-bottom: 25px;
+}
+
 a:link, a:visited, a {
   text-decoration: none;
+}
+
+a.button {
+  background: #85876e;
+  color: white;
+  border-bottom: 4px solid #46483a;
+  padding: 8px 16px;
+	-webkit-transition: all .1s linear;  
+  -moz-transition: all .1s linear;  
+  -o-transition: all .1s linear;  
+  -ms-transition: all .1s linear;   
+}
+
+a.button:hover {
+  background: #46483a;
+	-webkit-transition: all .1s linear;  
+  -moz-transition: all .1s linear;  
+  -o-transition: all .1s linear;  
+  -ms-transition: all .1s linear; 
+}
+
+h1#page-title {
+  font-family: "MuseoSlab500Regular";
+  font-size: 2.154em;
+  color: #85876e;
 }
 
 /** Layout **/
@@ -29,6 +64,7 @@ a:link, a:visited, a {
   height: 50px;
   background: #85876e;
   border-bottom: 5px solid #46483a;
+  margin-bottom: 50px;
 }
 
 #zone-menu .block-main-menu ul { }
@@ -54,4 +90,35 @@ a:link, a:visited, a {
   -moz-transition: all .1s linear;  
   -o-transition: all .1s linear;  
   -ms-transition: all .1s linear;   
+}
+
+/** Footer **/
+#zone-footer-wrapper {
+  background: #c3c7a2;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-top: 30px;
+  color: #85876e;
+  font-size: 0.857em;
+}
+
+#zone-footer-wrapper a {
+  color: #85876e;
+	-webkit-transition: all .1s linear;  
+  -moz-transition: all .1s linear;  
+  -o-transition: all .1s linear;  
+  -ms-transition: all .1s linear;   
+}
+
+#zone-footer-wrapper a:hover {
+  color: white;
+  -webkit-transition: all .1s linear;  
+  -moz-transition: all .1s linear;  
+  -o-transition: all .1s linear;  
+  -ms-transition: all .1s linear;   
+}
+
+#zone-footer-wrapper p {
+  margin-bottom: 0;
 }
