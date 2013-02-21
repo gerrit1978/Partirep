@@ -1,5 +1,5 @@
 name = 'HedgeComm'
-description = ''
+description = 'Custom Omega Subtheme by <a href="http://www.hedgecomm.be">HedgeComm</a>.'
 core = '7.x'
 engine = 'phptemplate'
 screenshot = 'screenshot.png'
