@@ -1,11 +1,21 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 
+/* sticky footer */
+html, body {height: 100%; margin: 0;}
+#page {display: table; width: 100%;}
+html>/**/body #page {height: 100%;}
+*:first-child+html #page {height: auto;}
+.section {display: table-row;}
+html>/**/body .section-content {height: 100%;}
+*:first-child+html body .section-content {height: auto;}
+
 /** HTML elements **/
 body {
-  font-size: 1.077em;
+  font-size: 15px;
+  line-height: 1.6;
   font-family: Arial, sans-serif;
-  color: #444;
+  color: #46483a;
 }
 
 p {
@@ -14,6 +24,17 @@ p {
 
 a:link, a:visited, a {
   text-decoration: none;
+  -webkit-transition: all .1s linear;  
+  -moz-transition: all .1s linear;  
+  -o-transition: all .1s linear;  
+  -ms-transition: all .1s linear;   
+}
+
+a:hover {
+  -webkit-transition: all .1s linear;  
+  -moz-transition: all .1s linear;  
+  -o-transition: all .1s linear;  
+  -ms-transition: all .1s linear;   
 }
 
 a.button {
@@ -21,24 +42,20 @@ a.button {
   color: white;
   border-bottom: 4px solid #46483a;
   padding: 8px 16px;
-	-webkit-transition: all .1s linear;  
-  -moz-transition: all .1s linear;  
-  -o-transition: all .1s linear;  
-  -ms-transition: all .1s linear;   
 }
 
 a.button:hover {
   background: #46483a;
-	-webkit-transition: all .1s linear;  
-  -moz-transition: all .1s linear;  
-  -o-transition: all .1s linear;  
-  -ms-transition: all .1s linear; 
 }
 
 h1#page-title {
   font-family: "MuseoSlab500Regular";
   font-size: 2.154em;
   color: #85876e;
+}
+
+h2 {
+  font-family: Arial, sans-serif;
 }
 
 /** Layout **/
@@ -78,18 +95,55 @@ h1#page-title {
 
 #zone-menu .block-main-menu ul li a {
   color: white;
-	-webkit-transition: all .1s linear;  
-  -moz-transition: all .1s linear;  
-  -o-transition: all .1s linear;  
-  -ms-transition: all .1s linear;   
 }
 
 #zone-menu .block-main-menu ul li a:hover, #zone-menu .block-main-menu ul li a.active {
   color: black;
-	-webkit-transition: all .1s linear;  
-  -moz-transition: all .1s linear;  
-  -o-transition: all .1s linear;  
-  -ms-transition: all .1s linear;   
+}
+
+/** Sidebar blocks **/
+.region-sidebar-first,
+.region-sidebar-second {
+  margin-top: 50px;
+}
+
+.region-sidebar-first .block,
+.region-sidebar-second .block {
+  border: 1px solid #cacaca;
+  margin-bottom: 30px;
+}
+
+.region-sidebar-first .block h2.block-title,
+.region-sidebar-second .block h2.block-title {
+	margin: 15px 0 0 -7px;
+  font-weight: 100;
+  font-size: 16px;
+  padding: 6px 20px;
+	color: white;
+  background: url(../img/bg-block-title.jpg) no-repeat left bottom;
+}
+
+.region-sidebar-first .block .content,
+.region-sidebar-second .block .content {
+  margin: 10px 15px;
+}
+
+.region-sidebar-first .block .content li,
+.region-sidebar-second .block .content li {
+  line-height: 1.2;
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.region-sidebar-first .block .content li a,
+.region-sidebar-second .block .content li {
+  color: #46483a;
+  border-bottom: 1px solid #CED4AB;
+}
+
+.region-sidebar-first .block .content li a:hover,
+.region-sidebar-second .block .content li a:hover {
+  border-bottom: 1px solid #46483a;
 }
 
 /** Footer **/
@@ -105,18 +159,10 @@ h1#page-title {
 
 #zone-footer-wrapper a {
   color: #85876e;
-	-webkit-transition: all .1s linear;  
-  -moz-transition: all .1s linear;  
-  -o-transition: all .1s linear;  
-  -ms-transition: all .1s linear;   
 }
 
 #zone-footer-wrapper a:hover {
   color: white;
-  -webkit-transition: all .1s linear;  
-  -moz-transition: all .1s linear;  
-  -o-transition: all .1s linear;  
-  -ms-transition: all .1s linear;   
 }
 
 #zone-footer-wrapper p {
