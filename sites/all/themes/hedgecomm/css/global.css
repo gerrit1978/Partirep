@@ -60,6 +60,30 @@ h2 {
   font-family: Arial, sans-serif;
 }
 
+/** Tabs **/
+ul.tabs {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.tabs li {}
+
+ul.tabs li a,
+ul.tabs li.active a {
+  border: none;
+  padding: 4px 10px;
+  background: #c3c7a2;
+  color: #85876e;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-size: 0.923em;
+}
+
+ul.tabs li.active a {
+  color: white;
+}
+
 /** Layout **/
 #zone-branding {
   height: 194px;
@@ -138,7 +162,7 @@ h2 {
 }
 
 .region-sidebar-first .block .content li a,
-.region-sidebar-second .block .content li {
+.region-sidebar-second .block .content li a {
   color: #46483a;
   border-bottom: 1px solid #CED4AB;
 }
