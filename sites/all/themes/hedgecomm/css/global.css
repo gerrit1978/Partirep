@@ -159,6 +159,7 @@ ul.tabs li.active a {
   line-height: 1.2;
   list-style: none;
   margin-bottom: 10px;
+  margin-left: 0;
 }
 
 .region-sidebar-first .block .content li a,
