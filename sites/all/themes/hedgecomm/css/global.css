@@ -24,6 +24,7 @@ p {
 
 a:link, a:visited, a {
   text-decoration: none;
+  color: #85876e;
   -webkit-transition: all .1s linear;  
   -moz-transition: all .1s linear;  
   -o-transition: all .1s linear;  
@@ -31,6 +32,7 @@ a:link, a:visited, a {
 }
 
 a:hover {
+  color: #46483a;
   -webkit-transition: all .1s linear;  
   -moz-transition: all .1s linear;  
   -o-transition: all .1s linear;  
@@ -167,4 +169,62 @@ h2 {
 
 #zone-footer-wrapper p {
   margin-bottom: 0;
+}
+
+/** Events block homepage **/
+.front #block-views-events-block {
+  margin-top: 40px;
+  border-top: 1px solid #ededed;
+  padding-top: 25px;
+}
+
+.front #block-views-events-block h2.block-title {
+  font-family: "MuseoSlab500Regular";
+  font-size: 1.571em;
+  color: #85876e;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.front #block-views-events-block ul.events li.event {
+  list-style: none;
+  padding: 20px 10px;
+  background: #fafafa;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.front #block-views-events-block ul.events li.event .title {
+  font-size: 1.071em;
+}
+
+.front #block-views-events-block ul.events li.event .date {
+  color: #cacaca;
+  font-size: 1.071em;
+}
+
+.front #block-views-events-block ul.events li.event .body {
+  line-height: 1;
+}
+
+.front #block-views-events-block ul.events li.event .link {
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+}
+
+.front #block-views-events-block ul.events li.event .link a {
+  color: #c3c7a2;
+  -webkit-transition: all .1s linear;  
+  -moz-transition: all .1s linear;  
+  -o-transition: all .1s linear;  
+  -ms-transition: all .1s linear;   
+}
+
+.front #block-views-events-block ul.events li.event .link a:hover {
+  color: #46483a;
+  -webkit-transition: all .1s linear;  
+  -moz-transition: all .1s linear;  
+  -o-transition: all .1s linear;  
+  -ms-transition: all .1s linear;   
 }
