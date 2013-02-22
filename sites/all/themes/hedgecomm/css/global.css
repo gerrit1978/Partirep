@@ -204,7 +204,8 @@ h2 {
 }
 
 .front #block-views-events-block ul.events li.event .body {
-  line-height: 1;
+  line-height: 1.2;
+  margin-top: 15px;
 }
 
 .front #block-views-events-block ul.events li.event .link {
