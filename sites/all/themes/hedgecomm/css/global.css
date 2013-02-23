@@ -264,6 +264,11 @@ ul.tabs li.active a {
   position: relative;
 }
 
+.view-working-papers ul.papers li.paper .version-wp-date {
+  font-size: 0.857em;
+  color: #cacaca;
+}
+
 .view-working-papers ul.papers li.paper .more-info {
   position: absolute;
   bottom: 5px;
