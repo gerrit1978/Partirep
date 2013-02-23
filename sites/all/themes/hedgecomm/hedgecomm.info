@@ -352,3 +352,7 @@ version = '1.x'
 
 stylesheets[all][] = fonts/museo/stylesheet.css
 stylesheets[all][] = fonts/awesome/css/font-awesome.min.css
+stylesheets[all][] = uniform/css/uniform.aristo.min.css
+
+scripts[] = scripts/jquery.uniform.min.js
+scripts[] = scripts/scripts.js
