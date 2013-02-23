@@ -254,3 +254,34 @@ ul.tabs li.active a {
   -o-transition: all .1s linear;  
   -ms-transition: all .1s linear;   
 }
+
+/** Working papers view **/
+.view-working-papers ul.papers li.paper {
+  list-style: none;
+  padding: 20px 10px;
+  background: #fafafa;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.view-working-papers ul.papers li.paper .more-info {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+}
+
+.view-working-papers ul.papers li.paper .more-info a {
+  color: #c3c7a2;
+  -webkit-transition: all .1s linear;  
+  -moz-transition: all .1s linear;  
+  -o-transition: all .1s linear;  
+  -ms-transition: all .1s linear;   
+}
+
+.view-working-papers ul.papers li.paper .more-info a:hover {
+  color: #46483a;
+  -webkit-transition: all .1s linear;  
+  -moz-transition: all .1s linear;  
+  -o-transition: all .1s linear;  
+  -ms-transition: all .1s linear;   
+}
