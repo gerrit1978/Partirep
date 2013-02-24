@@ -389,3 +389,8 @@ ul.tabs li.active a {
   padding: 10px;
   border: 1px solid #ededed;
 }
+
+/** Event Nodes **/
+.node-type-event .field .field-label {
+  width: 125px;
+}
