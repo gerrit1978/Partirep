@@ -290,3 +290,39 @@ ul.tabs li.active a {
   -o-transition: all .1s linear;  
   -ms-transition: all .1s linear;   
 }
+
+/** Working Papers Detail **/
+.node-type-working-paper h1#page-title {
+	line-height: 1;
+}
+
+.node-type-working-paper h1#page-title .small {
+	font-size: 0.7em;
+}
+
+.node-type-working-paper article {
+  padding-bottom: 50px;
+  position: relative;
+}
+
+.node-type-working-paper .field .field-label {
+  width: 125px;
+}
+
+.node-type-working-paper .field .download-file {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.node-type-working-paper .field .download-file a .hidden {
+  float: left;
+  padding-top: 20px;
+  margin-right: 20px;
+  font-size: 1.143em;
+  text-indent: -999em;
+}
+
+.node-type-working-paper .field .download-file a:hover .hidden {
+  text-indent: 0;
+}
