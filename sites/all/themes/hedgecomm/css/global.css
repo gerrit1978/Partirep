@@ -52,6 +52,7 @@ a.button:hover {
 
 h1#page-title {
   font-family: "MuseoSlab500Regular";
+  font-weight: 500;
   font-size: 2.154em;
   color: #85876e;
 }
@@ -325,4 +326,66 @@ ul.tabs li.active a {
 
 .node-type-working-paper .field .download-file a:hover .hidden {
   text-indent: 0;
+}
+
+
+/** Team Page **/
+.page-team h1#page-title {
+  margin-bottom: 5px;
+}
+
+.page-team ul.universities li.university { 
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.page-team ul.universities li.university h2 {
+  font-family: "MuseoSlab500Regular";
+  font-weight: 500;
+  font-size: 1.286em;
+  color: #85876e;
+  margin-bottom: 5px;
+}
+
+.page-team ul.users li.user {
+  width: 30%;
+  margin-right: 5%;
+  float: left;
+  list-style: none;
+  background: #fafafa;
+  padding: 10px 0;
+  position: relative;
+}
+
+.page-team ul.users li.user.last {
+  margin-right: 0;
+}
+
+.page-team ul.users li.user .picture {
+  margin-left: 10px;
+  float: left;
+  margin-right: 10px;
+  border: 1px solid #ededed;
+}
+
+.page-team ul.users li.user .link {
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+}
+
+/** User Profile Pages **/
+.page-user .field .field-label {
+  width: 125px;
+}
+
+.page-user .field-name-field-user-function {
+  clear: both;
+}
+
+.page-user .user-picture {
+  margin-right: 0;
+  margin-left: 20px;
+  padding: 10px;
+  border: 1px solid #ededed;
 }
