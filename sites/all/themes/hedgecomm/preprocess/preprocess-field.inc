@@ -45,15 +45,20 @@ function hedgecomm_alpha_preprocess_field(&$variables) {
     $variables['items'][0]['#markup'] = $final_output;
 	}
 	
-/*
+
 	// preprocess google maps location
 	if ($variables['element']['#field_name'] == 'field_event_location') {
+	  $items = $variables['items'];
+		$variables['latitude'] = $items[0]['#location']['latitude'];
+		$variables['longitude'] = $items[0]['#location']['longitude'];
+		$variables['map_title'] = $variables['element']['#object']->title;
+/*
 	  $item = $variables['items'][0];
 	  $street = $item['#location']['street'];
 	  $postal_code = $item['#location']['postal_code'];
 	  $city = $item['#location']['city'];
     unset($variables['items']);
     $variables['items'][0]['#markup'] = '<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.be/maps?f=q&amp;source=s_q&amp;hl=nl&amp;geocode=&amp;q=' . $street . ',+' . $postal_code . ' ''&amp;aq=&amp;sll=50.905491,4.617108&amp;sspn=0.034694,0.090895&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=Overstraat,+3020+Herent,+Vlaams-Brabant,&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>';    
-	}
 */
+	}
 }

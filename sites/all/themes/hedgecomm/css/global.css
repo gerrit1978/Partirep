@@ -394,3 +394,20 @@ ul.tabs li.active a {
 .node-type-event .field .field-label {
   width: 125px;
 }
+
+.node-type-event .field-name-field-event-img {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ededed;
+}
+
+.node-type-event #map_wrapper {
+	margin-bottom: 20px;
+}
+
+.node-type-event #map_canvas {
+  float: left;
+  margin-right: 20px;
+}
