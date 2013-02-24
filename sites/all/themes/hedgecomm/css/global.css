@@ -319,7 +319,7 @@ ul.tabs li.active a {
 .node-type-working-paper .field .download-file a .hidden {
   float: left;
   padding-top: 20px;
-  margin-right: 20px;
+  padding-right: 20px;
   font-size: 1.143em;
   text-indent: -999em;
 }
