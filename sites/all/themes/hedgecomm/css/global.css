@@ -292,6 +292,14 @@ ul.tabs li.active a {
   color: #cacaca;
 }
 
+.page-events ul.events li.event .image {
+  float: left;
+  margin-right: 10px;
+  margin-top: 5px;
+  border: 1px solid #ededed;
+  padding: 5px;
+}
+
 .page-events ul.events li.event .body {
   margin-bottom: 15px;
 }
