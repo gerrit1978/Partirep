@@ -11,7 +11,7 @@
 function hc_team_theme($existing, $type, $theme, $path) {
   return array(
 
-		// main team page
+    // main team page
     'views_view_field__team__nothing' => array( 
         'arguments' => array('view' => FALSE, 'field' => FALSE, 'row' => FALSE),
         'original hook' => 'views_view_field',
