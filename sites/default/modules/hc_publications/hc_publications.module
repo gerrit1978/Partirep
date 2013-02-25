@@ -35,6 +35,7 @@ function hc_publications_views_api() {
  */
 function hc_publications_preprocess_views_view_field__publications__nothing(&$vars) {
   $output = "";
+  $output_type = "";
 	$nid = $vars['row']->nid;
 	$node = node_load($nid);
 
@@ -95,7 +96,6 @@ function hc_publications_preprocess_views_view_field__publications__nothing(&$va
   // JOURNAL TITLE
   $pub_journal_title = $pub_journal_title_field[0]['safe_value'];
 
-
   // define output for different publication types
   switch ($publication_type) {
     case ($publication_types['Peer-reviewed Article']):
@@ -108,6 +108,11 @@ function hc_publications_preprocess_views_view_field__publications__nothing(&$va
   }
   
   $vars['output'] = $output;
+  
+  // PUBLICATION TYPE
+  $publication_type_final = array_search($publication_type, $publication_types);
+  
+  $vars['output_type'] = "<div class='publication-type'>" . $publication_type_final . "</div>";
 }
 
 /**

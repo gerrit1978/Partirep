@@ -466,3 +466,18 @@ ul.tabs li.active a {
   float: left;
   margin-right: 20px;
 }
+
+/** Publications **/
+.page-publications ul.publications li.publication {
+  list-style: none;
+  padding: 20px 10px;
+  background: #fafafa;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.page-publications ul.publications li.publication .link {
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+}
