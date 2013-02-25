@@ -476,6 +476,11 @@ ul.tabs li.active a {
   position: relative;
 }
 
+.page-publications ul.publications li.publication .publication-type {
+  font-size: 0.857em;
+  color: #cacaca;
+}
+
 .page-publications ul.publications li.publication .link {
   position: absolute;
   right: 5px;

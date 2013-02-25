@@ -112,7 +112,7 @@ function hc_publications_preprocess_views_view_field__publications__nothing(&$va
   // PUBLICATION TYPE
   $publication_type_final = array_search($publication_type, $publication_types);
   
-  $vars['output_type'] = "<div class='publication-type'>" . $publication_type_final . "</div>";
+  $vars['output_type'] = "<div class='publication-type'>category: " . $publication_type_final . "</div>";
 }
 
 /**
