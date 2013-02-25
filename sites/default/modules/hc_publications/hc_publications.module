@@ -10,9 +10,118 @@
 function hc_publications_theme($existing, $type, $theme, $path) {
   return array(
     // main catalog pages
-    'views_view_field__productzoeken__nothing' => array( 
+    'views_view_field__publications__nothing' => array( 
       'arguments' => array('view' => FALSE, 'field' => FALSE, 'row' => FALSE),
       'original hook' => 'views_view_field',
+      'template' => 'views-view-field-publications--nothing',
     ),
   );
+}
+
+/**
+ * Implements hook_views_api
+ */
+function hc_publications_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+
+
+
+/**
+ * Preprocess function
+ */
+function hc_publications_preprocess_views_view_field__publications__nothing(&$vars) {
+  $output = "";
+	$nid = $vars['row']->nid;
+	$node = node_load($nid);
+
+	$publication_types = _hc_publications_get_types();
+	
+  $publication_type_field = field_get_items('node', $node, 'field_pub_type');
+  $publication_type = $publication_type_field[0]['tid'];
+  
+  // get all fields for this node
+  $pub_title = $node->title;
+  $pub_publication_year_field = field_get_items('node', $node, 'field_pub_publication_year');
+  $pub_abstract_field = field_get_items('node', $node, 'field_pub_abstract');
+  $pub_keywords_field = field_get_items('node', $node, 'field_pub_keywords');
+  $pub_email_field = field_get_items('node', $node, 'field_pub_email');
+  $pub_file_field = field_get_items('node', $node, 'field_pub_file');
+  
+  $pub_authors_field = field_get_items('node', $node, 'field_pub_authors');
+  $pub_extra_authors_field = field_get_items('node', $node, 'field_pub_extra_authors');
+  
+  $pub_journal_title_field = field_get_items('node', $node, 'field_pub_journal_title');
+  
+  // AUTHORS
+  $output_authors = "";
+  $all_authors = array();
+	if (is_array($pub_authors_field) && count($pub_authors_field)) {
+	  foreach($pub_authors_field as $author_field) {
+	    $author_path = drupal_get_path_alias('user/' . $author_field['uid']);
+	    $author = user_load($author_field['uid']);
+	    $author_firstname_field = field_get_items('user', $author, 'field_user_firstname');
+	    $author_firstname = $author_firstname_field[0]['safe_value'];
+	    $author_lastname_field = field_get_items('user', $author, 'field_user_lastname');
+	    $author_lastname = $author_lastname_field[0]['safe_value'];
+	    $author_fullname = l($author_lastname . " " . $author_firstname, $author_path);
+	    $all_authors[] = $author_fullname;
+	  }
+	}
+	
+	if (is_array($pub_extra_authors_field) && count($pub_extra_authors_field)) {
+    foreach ($pub_extra_authors_field as $extra_author_field) {
+      $all_authors[] = $extra_author_field['safe_value'];
+    }
+	}
+	
+	if (is_array($all_authors) && count($all_authors)) {
+	  if (count($all_authors) > 1) {
+	    for ($i = 0; $i < (count($all_authors) - 2); $i++) {
+	      $output_authors .= $all_authors[$i] . ", ";
+	    }
+	    $output_authors .= $all_authors[count($all_authors) - 2] . " & " . $all_authors[count($all_authors) - 1];
+	  } else {
+	    $output_authors = $all_authors[0];
+	  }
+	}
+
+  // YEAR	
+  $pub_year = $pub_publication_year_field[0]['value'];
+
+  // JOURNAL TITLE
+  $pub_journal_title = $pub_journal_title_field[0]['safe_value'];
+
+
+  // define output for different publication types
+  switch ($publication_type) {
+    case ($publication_types['Peer-reviewed Article']):
+    case ($publication_types['Other Article (without peer-review system)']):
+      $output = sprintf('<strong>%s</strong> (%s) "%s" in <em>%s</em>.', $output_authors, $pub_year, $pub_title, $pub_journal_title);
+      break;
+    case ($publication_types['PhD']):
+      $output = sprintf('<strong>%s</strong> (%s) "%s".', $output_authors, $pub_year, $pub_title);
+      break;
+  }
+  
+  $vars['output'] = $output;
+}
+
+/**
+ * Helper function for defining publication types
+ */
+function _hc_publications_get_types() {
+	// vid for vocabulary "Publication Types" = 6
+	$tree = taxonomy_get_tree(6);
+
+  $publication_types = array();
+	foreach ($tree as $leaf) {
+    $publication_types[$leaf->name] = $leaf->tid;
+	}
+	
+	return $publication_types;
+
 }
