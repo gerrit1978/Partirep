@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * @file
+ * Preprocess User Profile Page
+ */
+
+/**
+ * Implements THEME_preprocess_HOOK
+ */
 function hedgecomm_alpha_preprocess_user_profile(&$variables) {
   $account = $variables['elements']['#account'];
   $email = $account->mail;

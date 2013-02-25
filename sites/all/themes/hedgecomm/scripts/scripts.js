@@ -1,3 +1,7 @@
+/**
+ * @file
+ * Javascript handling
+ */
 jQuery(document).ready(function($) {
 
   // jquery uniform

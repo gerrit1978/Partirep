@@ -1,17 +1,25 @@
 <?php
 
+/**
+ * @file
+ * Preprocess Fields
+ */
+
+/**
+ * Implements THEME_preprocess_HOOK
+ */
 function hedgecomm_alpha_preprocess_field(&$variables) {
 
   // preprocess download link for Working Paper document
-	if ($variables['element']['#field_name'] == 'field_work_paper_document') {
-	  $path = $variables['items'][0]['#markup'];
-	  $variables['items'][0]['#prefix'] = "<div class='download-file'>";
- 	  $variables['items'][0]['#suffix'] = "</div>";
- 	  $variables['items'][0]['#markup'] = t('<a href="@url" target="_blank"><div class="hidden">download file</div><i class="icon-download icon-4x"></i></a>', array('@url' => $path));
-	}
-	
-	// preprocess author(s) for Working Paper document
-	if ($variables['element']['#field_name'] == 'field_work_paper_user') {
+  if ($variables['element']['#field_name'] == 'field_work_paper_document') {
+    $path = $variables['items'][0]['#markup'];
+    $variables['items'][0]['#prefix'] = "<div class='download-file'>";
+    $variables['items'][0]['#suffix'] = "</div>";
+    $variables['items'][0]['#markup'] = t('<a href="@url" target="_blank"><div class="hidden">download file</div><i class="icon-download icon-4x"></i></a>', array('@url' => $path));
+  }
+
+  // preprocess author(s) for Working Paper document
+  if ($variables['element']['#field_name'] == 'field_work_paper_user') {
     
     $authors_output = array();
     
@@ -43,22 +51,13 @@ function hedgecomm_alpha_preprocess_field(&$variables) {
     $final_output = implode(', ', $authors_output);
     unset($variables['items']);
     $variables['items'][0]['#markup'] = $final_output;
-	}
-	
+  }
 
-	// preprocess google maps location
-	if ($variables['element']['#field_name'] == 'field_event_location') {
-	  $items = $variables['items'];
-		$variables['latitude'] = $items[0]['#location']['latitude'];
-		$variables['longitude'] = $items[0]['#location']['longitude'];
-		$variables['map_title'] = $variables['element']['#object']->title;
-/*
-	  $item = $variables['items'][0];
-	  $street = $item['#location']['street'];
-	  $postal_code = $item['#location']['postal_code'];
-	  $city = $item['#location']['city'];
-    unset($variables['items']);
-    $variables['items'][0]['#markup'] = '<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.be/maps?f=q&amp;source=s_q&amp;hl=nl&amp;geocode=&amp;q=' . $street . ',+' . $postal_code . ' ''&amp;aq=&amp;sll=50.905491,4.617108&amp;sspn=0.034694,0.090895&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=Overstraat,+3020+Herent,+Vlaams-Brabant,&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>';    
-*/
-	}
+  // preprocess google maps location
+  if ($variables['element']['#field_name'] == 'field_event_location') {
+    $items = $variables['items'];
+    $variables['latitude'] = $items[0]['#location']['latitude'];
+    $variables['longitude'] = $items[0]['#location']['longitude'];
+    $variables['map_title'] = $variables['element']['#object']->title;
+  }
 }

@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Provides theming support for Team page
+ */
+
+/**
  * Implements hook_theme
  */
 function hc_team_theme($existing, $type, $theme, $path) {
