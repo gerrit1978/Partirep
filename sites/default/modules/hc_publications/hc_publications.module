@@ -55,7 +55,14 @@ function hc_publications_preprocess_views_view_field__publications__nothing(&$va
   $pub_authors_field = field_get_items('node', $node, 'field_pub_authors');
   $pub_extra_authors_field = field_get_items('node', $node, 'field_pub_extra_authors');
   
+  $pub_editors_field = field_get_items('node', $node, 'field_pub_editors');
+  $pub_extra_editors_field = field_get_items('node', $node, 'field_pub_extra_editors');
+  
   $pub_journal_title_field = field_get_items('node', $node, 'field_pub_journal_title');
+  
+  $pub_book_title_field = field_get_items('node', $node, 'field_pub_book_title');
+  
+  $pub_conference_field = field_get_items('node', $node, 'field_pub_conference');
   
   // AUTHORS
   $output_authors = "";
@@ -89,21 +96,73 @@ function hc_publications_preprocess_views_view_field__publications__nothing(&$va
 	    $output_authors = $all_authors[0];
 	  }
 	}
-
+	
+	// EDITORS
+  $output_editors = "";
+  $all_editors = array();
+	if (is_array($pub_editors_field) && count($pub_editors_field)) {
+	  foreach($pub_editors_field as $editor_field) {
+	    $editor_path = drupal_get_path_alias('user/' . $editor_field['uid']);
+	    $editor = user_load($editor_field['uid']);
+	    $editor_firstname_field = field_get_items('user', $editor, 'field_user_firstname');
+	    $editor_firstname = $editor_firstname_field[0]['safe_value'];
+	    $editor_lastname_field = field_get_items('user', $editor, 'field_user_lastname');
+	    $editor_lastname = $editor_lastname_field[0]['safe_value'];
+	    $editor_fullname = l($editor_lastname . " " . $editor_firstname, $editor_path);
+	    $all_editors[] = $editor_fullname;
+	  }
+	}
+	
+	if (is_array($pub_extra_editors_field) && count($pub_extra_editors_field)) {
+    foreach ($pub_extra_editors_field as $extra_editor_field) {
+      $all_editors[] = $extra_editor_field['safe_value'];
+    }
+	}
+	
+	if (is_array($all_editors) && count($all_editors)) {
+	  if (count($all_editors) > 1) {
+	    for ($i = 0; $i < (count($all_editors) - 2); $i++) {
+	      $output_editors .= $all_editors[$i] . ", ";
+	    }
+	    $output_editors .= $all_editors[count($all_editors) - 2] . " & " . $all_editors[count($all_editors) - 1];
+	  } else {
+	    $output_editors = $all_editors[0];
+	  }
+	}
+	
   // YEAR	
   $pub_year = $pub_publication_year_field[0]['value'];
 
   // JOURNAL TITLE
   $pub_journal_title = $pub_journal_title_field[0]['safe_value'];
 
+  // BOOK TITLE
+  $pub_book_title = $pub_book_title_field[0]['safe_value'];
+
+  // CONFERENCE
+  $pub_conference = $pub_conference_field[0]['safe_value'];
+
   // define output for different publication types
   switch ($publication_type) {
     case ($publication_types['Peer-reviewed Article']):
     case ($publication_types['Other Article (without peer-review system)']):
+    case ($publication_types['Various']):
       $output = sprintf('<strong>%s</strong> (%s) "%s" in <em>%s</em>.', $output_authors, $pub_year, $pub_title, $pub_journal_title);
       break;
     case ($publication_types['PhD']):
       $output = sprintf('<strong>%s</strong> (%s) "%s".', $output_authors, $pub_year, $pub_title);
+      break;
+    case ($publication_types['Edited Book']):
+      $output = sprintf('<strong>%s</strong> (Eds). (%s) "%s".', $output_editors, $pub_year, $pub_title);
+      break;
+    case ($publication_types['Conference Paper']):
+      $output = sprintf('<strong>%s</strong> (%s) "%s". <em>Paper prepared for/presented at %s</em>.', $output_authors, $pub_year, $pub_title, $pub_conference);
+      break;
+    case ($publication_types['Book Chapter']):
+      $output = sprintf('<strong>%s</strong> (%s) "%s" in %s (eds.), <em>%s</em>.', $output_authors, $pub_year, $pub_title, $output_editors, $pub_book_title);
+      break;
+    case ($publication_types['Book']):
+      $output = sprintf('<strong>%s</strong> (%s) <em>%s</em>.', $output_authors, $pub_year, $pub_title);
       break;
   }
   

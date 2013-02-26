@@ -484,5 +484,5 @@ ul.tabs li.active a {
 .page-publications ul.publications li.publication .link {
   position: absolute;
   right: 5px;
-  bottom: 0px;
+  bottom: 5px;
 }
