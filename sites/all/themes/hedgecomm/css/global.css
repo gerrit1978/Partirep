@@ -116,7 +116,7 @@ ul.tabs li.active a {
 #zone-menu .block-main-menu ul li {
   list-style: none;
   float: left;
-  margin-right: 20px;
+  margin-right: 10px;
   line-height: 45px;
 }
 
@@ -482,6 +482,35 @@ ul.tabs li.active a {
 }
 
 .page-publications ul.publications li.publication .link {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+/** Publication node type **/
+.node-type-publication .field.field-name-field-pub-abstract {
+  margin-bottom: 30px;
+}
+ 
+.node-type-publication .field .field-label {
+  width: 205px;
+}
+
+/** Datafiles **/
+.page-datafiles ul.datafiles li.datafile {
+  list-style: none;
+  padding: 20px 10px;
+  background: #fafafa;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.page-datafiles ul.datafiles li.datafile .work-package {
+  font-size: 0.857em;
+  color: #cacaca;
+}
+
+.page-datafiles ul.datafiles li.datafile .link {
   position: absolute;
   right: 5px;
   bottom: 5px;

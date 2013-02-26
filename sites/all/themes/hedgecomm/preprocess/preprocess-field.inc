@@ -60,4 +60,33 @@ function hedgecomm_alpha_preprocess_field(&$variables) {
     $variables['longitude'] = $items[0]['#location']['longitude'];
     $variables['map_title'] = $variables['element']['#object']->title;
   }
+  
+  // preprocess authors for publication
+  if ($variables['element']['#field_name'] == 'field_pub_authors') {
+    $node = $variables['element']['#object'];
+    $pub_extra_authors_field = field_get_items('node', $node, 'field_pub_extra_authors');
+    if (is_array($pub_extra_authors_field) && count($pub_extra_authors_field)) {
+      $extra_authors = array();
+      foreach ($pub_extra_authors_field as $extra_author) {
+        $extra_authors[] = $extra_author['safe_value'];
+      }
+      $output_extra_authors = implode(' ', $extra_authors);
+      $variables['items'][] = array('#markup' => $output_extra_authors);
+    }
+  }
+  
+  // preprocess editors for publication
+  if ($variables['element']['#field_name'] == 'field_pub_editors') {
+    $node = $variables['element']['#object'];
+    $pub_extra_editors_field = field_get_items('node', $node, 'field_pub_extra_editors');
+    if (is_array($pub_extra_editors_field) && count($pub_extra_editors_field)) {
+      $extra_editors = array();
+      foreach ($pub_extra_editors_field as $extra_editor) {
+        $extra_editors[] = $extra_editor['safe_value'];
+      }
+      $output_extra_editors = implode(' ', $extra_editors);
+      $variables['items'][] = array('#markup' => $output_extra_editors);
+    }
+  }
+  
 }
