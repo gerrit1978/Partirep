@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ *
+ * This module provides an overview page with links to different admin overview subpages
+ */
+
+/**
+ * Implements hook_menu
+ */
+function hc_admin_menu() {
+  $items = array();
+  
+  $items['admin/content/overview'] = array(
+    'title' => t('Content overview'),
+    'page callback' => '_hc_admin_overview_page',
+    'access arguments' => array('access site administration pages'),
+  );
+  
+  return $items;
+}
+
+
+/**
+ * Implements hook_permission
+ */
+function hc_admin_permission() {
+  return array(
+    'access site administration pages' => array(
+      'title' => t('Access site administration pages'),
+      'description' => t('Access the overview pages with content on the site'),
+    ),
+  );
+} 
+
+
+/**
+ * Callback function for page
+ */
+function _hc_admin_overview_page() {
+  $items = array();
+  
+  $items[] = l('Static pages', 'admin/content/overview/page');
+  $items[] = l('Messages', 'admin/content/overview/message');
+  $items[] = l('Datafiles', 'admin/content/overview/datafile');
+  $items[] = l('Events', 'admin/content/overview/event');
+  $items[] = l('Research Network', 'admin/content/overview/research_network');
+  $items[] = l('Publications', 'admin/content/overview/publication');  
+  $items[] = l('Work Packages', 'admin/content/overview/work_package');  
+  $items[] = l('Working Papers', 'admin/content/overview/working_paper');  
+  
+  return theme('item_list', array('items' => $items));
+}
